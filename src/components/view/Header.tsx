@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Category } from "../../../Types/Category";
 import Image from "next/image";
 import logo from "../../../public/images/logo.png.webp";
-import { ShoppingCart, Search, MenuIcon } from "lucide-react";
+import {  Search, MenuIcon } from "lucide-react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { useAppSelector } from "@/app/store/hooks";
@@ -17,7 +17,7 @@ interface props {
 const Header = ({ NavBarItem }: props) => {
   const cartItem = useAppSelector((state) => state.cartArray);
   return (
-    <main className="sticky top-0 bg-inherit z-10  py-2 md:px-8  flex justify-between items-center shadow-md"> 
+    <main className="fixed top-0 bg-white z-10 w-full md:w-[94.5%] py-2 px-2 md:px-8   h-20   flex justify-between items-center shadow-md"> 
     
       <div className="cursor-pointer">
         <Link href={"/"}>
@@ -69,7 +69,7 @@ const Header = ({ NavBarItem }: props) => {
             width={150}
             height={150}
           />
-          <p className="text-xs text-white font-bold mt-3">Cart</p>
+          <p className="text-xs text-[#f22329] font-bold mt-3">Cart</p>
           <span className="absolute  text-[#f22329] text-sm top-2 left-[26px] font-semibold">
             {cartItem.totalQuantity}
           </span>
