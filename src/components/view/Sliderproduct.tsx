@@ -12,13 +12,21 @@ import { Product } from "../../../Types/Product";
 import { useDispatch } from "react-redux";
 import { addCart } from "@/app/store/slice/cart";
 import { Button } from "../ui/button";
+import toast from "react-hot-toast";
 interface prop {
   Sdata: Product[];
 }
 const ProductSlider =  ({ Sdata }: prop) => {
   const dispatch = useDispatch();
+  const Addproduct = (productAdd: Product, qty: number)=>{
+    dispatch(addCart({product:productAdd, quantity:qty}))
+    toast.success("Successfully Product Added ",{
+        icon: '👏',
+      })
+
+}
   return (
-    <main className=" bg-gray-200 md:flex justify-center items-center w-full h-auto px-14 mb-[50px] mt-[100px]">
+    <main className=" bg-gray-200 md:flex justify-center items-center  h-auto px-14 mb-[50px] mt-[100px]">
       <Swiper
         breakpoints={{
           576: {
@@ -56,7 +64,7 @@ const ProductSlider =  ({ Sdata }: prop) => {
                   </div>
                 </div>
                 <div className=" mx-auto">
-                        <Button onClick={() => dispatch(addCart({product:s, quantity:1}))} className="w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent" >
+                        <Button onClick={() => Addproduct(s,1)} className="w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent" >
                              Add to cart
                         </Button>
                     </div>

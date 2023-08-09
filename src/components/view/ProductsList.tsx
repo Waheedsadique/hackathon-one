@@ -9,6 +9,7 @@ import { addCart } from '@/app/store/slice/cart'
 import { Button } from '../ui/button'
 import { Product } from '../../../Types/Product'
 import { ShoppingCart } from 'lucide-react'
+import toast from "react-hot-toast"
 
 
 interface Prop {
@@ -16,6 +17,13 @@ interface Prop {
 }
 function ProductList({ data }: Prop) {
     const dispatch = useDispatch();
+    const Addproduct = (productAdd: Product, qty: number)=>{
+        dispatch(addCart({product:productAdd, quantity:qty}))
+        toast.success("Successfully Product Added ",{
+            icon: '👏',
+          })
+
+    }
     return (
         <main className="grid grid-cols-1 md:grid md:grid-cols-3  gap-4 mb-[50px] mt-[100px]">
 
@@ -41,7 +49,7 @@ function ProductList({ data }: Prop) {
                         </div>
                     </Link>
                     <div className="flex justify-center mx-auto">
-                        <Button onClick={() => dispatch(addCart({product:iProduct,quantity:1}))} className="w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent gap-2" >
+                        <Button onClick={()=>Addproduct(iProduct,1)} className="w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent gap-2" >
                             <ShoppingCart /> Add to cart
                         </Button>
                     </div>

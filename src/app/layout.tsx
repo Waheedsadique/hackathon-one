@@ -3,6 +3,7 @@ import './globals.css'
 import Providers from './provider'
 import { Inter, Maven_Pro } from 'next/font/google'
 import Footer from '@/components/Layout/Footer'
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer/>
+        <Toaster position="top-left"/>
         </body>
     </html>
     </Providers>
