@@ -38,7 +38,7 @@ const Header = ({ NavBarItem }: props) => {
               </div>
             ))}
             <li>
-              <Link href={"../category/allProduct"}>
+              <Link href={"../category/allproduct"}>
                 <div>All Products</div>
               </Link>
             </li>
@@ -95,7 +95,7 @@ const Header = ({ NavBarItem }: props) => {
                 </div>
               ))}
               <div>
-                <Link href={"../category/allProduct"}>
+                <Link href={"../category/allproduct"}>
                   <SheetClose asChild>
                     <li>All Products</li>
                   </SheetClose>

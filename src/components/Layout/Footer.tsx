@@ -70,7 +70,7 @@ export default function Footer() {
               </Link>
             </p>
             <p>
-              <Link href="#!" className="text-neutral-600 dark:text-neutral-200">
+              <Link href={"../category/allproduct"} className="text-neutral-600 dark:text-neutral-200">
                 All Product
               </Link>
             </p>

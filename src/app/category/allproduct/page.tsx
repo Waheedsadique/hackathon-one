@@ -5,7 +5,7 @@ const AllProducts = async () => {
     const product = await getProducts();
   return (
     <div>
-        <ProductList data={product}/>
+      <ProductList data={product}/>
     </div>
   )
 }
