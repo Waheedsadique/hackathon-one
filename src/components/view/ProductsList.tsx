@@ -30,7 +30,7 @@ function ProductList({ data }: Prop) {
             {data.map((iProduct) => (
                 <div key={iProduct._id} className="space-y-2 shadow-lg py-4">
                     <Link href={`../product/${iProduct.slug}`}>
-                        <div className=" mx-auto">
+                        <div className=" mx-auto px-24 md:px-0">
                             <Image
                                 src={iProduct.images[0]}
                                 height={250}
