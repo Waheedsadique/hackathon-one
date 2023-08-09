@@ -38,7 +38,7 @@ function Cart() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto mt-8 ">
+    <div className="max-w-6xl mx-auto mb-[50px] mt-[100px] ">
       {cartList.cartItems.length == 0 ? (
         <div className="flex flex-col md:flex justify-center items-center mx-auto">
           <div>
