@@ -8,6 +8,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { useAppSelector } from "@/app/store/hooks";
 import cart from "../../../public/images/cartIcon.png";
+import { ModeToggle } from "../Layout/ToggleButton";
 
 
 interface props {
@@ -17,7 +18,7 @@ interface props {
 const Header = ({ NavBarItem }: props) => {
   const cartItem = useAppSelector((state) => state.cartArray);
   return (
-    <main className="fixed top-0 bg-white z-10 w-full md:w-[94.5%] py-2 px-2 md:px-8   h-20   flex justify-between items-center shadow-md"> 
+    <main className="fixed top-0 bg-white dark:bg-slate-900 z-10 w-full md:w-[94.5%] py-2 px-2 md:px-8   h-20   flex justify-between items-center shadow-md"> 
     
       <div className="cursor-pointer">
         <Link href={"/"}>
@@ -56,7 +57,8 @@ const Header = ({ NavBarItem }: props) => {
           <Search />
         </span>
       </div>
-      <div>
+      <div className="flex space-x-3 mr-4">
+        <div><ModeToggle/></div> 
         <Link
           href={"../cart"}
           className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative"

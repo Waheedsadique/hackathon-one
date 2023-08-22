@@ -1,5 +1,6 @@
 export type cartProduct={
     _id: string;
+    user_id: string,
     createdAt?: Date;
     name: string;
     slug: string;

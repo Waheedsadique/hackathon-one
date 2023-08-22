@@ -7,4 +7,5 @@ export type Product = {
     currency:string;
     price:number;
     images:string[];
+    user_id:string
   };

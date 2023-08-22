@@ -7,7 +7,7 @@ import { cart } from "../../../../Types/cart";
 const initialState: cart = {
   cartItems: [],
   totalQuantity: 0,
-  totalAmount: 0,
+  totalAmount: 0, 
 };
 const CartSlice = createSlice({
   name: "Cart",
@@ -16,10 +16,10 @@ const CartSlice = createSlice({
     //add to cart function
     addCart(state: cart, action: PayloadAction<{ product: Product; quantity: number }>) {
       const newObj = action.payload.product;
-      const existingObj = state.cartItems.find(val => val._id === newObj._id)
+      const existingObj = state.cartItems.find((val) => val._id === newObj._id)
 
-      state.totalQuantity = state.totalQuantity + action.payload.quantity
-      state.totalAmount = state.totalAmount + action.payload.quantity * action.payload.product.price
+      state.totalQuantity = state.totalQuantity + action.payload.quantity;
+      state.totalAmount = state.totalAmount + action.payload.quantity * action.payload.product.price;
       if (existingObj) {
         ++existingObj.quantity
 
@@ -27,7 +27,10 @@ const CartSlice = createSlice({
         state.cartItems = [...newState, existingObj]
         return
       }
-      state.cartItems.push({ ...newObj, quantity: action.payload.quantity });
+      state.cartItems.push({
+        ...newObj, quantity: action.payload.quantity,
+        user_id: ""
+      });
     },
     //delete from cart function
     deleteCart(state: cart, action: PayloadAction<{ product: Product, quantity: number }>) {
