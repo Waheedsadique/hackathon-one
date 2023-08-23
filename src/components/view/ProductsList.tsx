@@ -11,6 +11,7 @@ import { Product } from '../../../Types/Product'
 import { ShoppingCart } from 'lucide-react'
 import toast from "react-hot-toast"
 import { cartProduct } from '../../../Types/cart'
+import { json } from 'stream/consumers'
 
 
 interface Prop {
@@ -19,6 +20,22 @@ interface Prop {
 }
 function ProductList({ data }: Prop) {
     const dispatch = useDispatch();
+    const add = data.find((i)=>(data))
+    // const handle =async ({ data }: Prop) => {
+    //     const res = await fetch(`api/cart`, {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             user_id: add?.user_id ,
+    //             product_id: add?._id,
+    //             product_name: add?.name,
+    //             quantity: add?.quantity,
+    //             image: add?.images,
+    //             price:add?.price,
+    //             category: add?.category,
+    //             total_price:  
+    //         })
+    //     })
+    // }
     const Addproduct = (productAdd: Product, qty: number ,user_id : string)=>{
         dispatch(addCart({product:productAdd, quantity:qty}))
         toast.success("Successfully Product Added ",{

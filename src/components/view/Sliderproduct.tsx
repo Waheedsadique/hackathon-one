@@ -26,7 +26,7 @@ const ProductSlider =  ({ Sdata }: prop) => {
 
 }
   return (
-    <main className=" bg-gray-200 md:flex justify-center items-center  h-auto px-14 mb-[50px] mt-[100px]">
+    <main className=" bg-gray-200 dark:bg-background md:flex justify-center items-center  h-auto px-14 mb-[50px] mt-[100px]">
       <Swiper
         breakpoints={{
           576: {
