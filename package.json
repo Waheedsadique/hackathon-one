@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+   
   },
   "dependencies": {
     "@portabletext/react": "^3.0.4",
@@ -25,7 +26,7 @@
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "drizzle-orm": "^0.28.2",
+    "drizzle-orm": "^0.28.5",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "framer-motion": "^10.15.0",
