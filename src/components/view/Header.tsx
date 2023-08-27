@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 import { useAppSelector } from "@/app/store/hooks";
 import cart from "../../../public/images/cartIcon.png";
 import { ModeToggle } from "../Layout/ToggleButton";
+import { useSession, signOut } from "next-auth/react";
 
 
 interface props {
@@ -17,6 +18,8 @@ interface props {
 
 const Header = ({ NavBarItem }: props) => {
   const cartItem = useAppSelector((state) => state.cartArray);
+  const {data} = useSession();
+console.log(data)
   return (
     <main className="fixed top-0 bg-white dark:bg-slate-900 z-10 w-full md:w-[94.5%] py-2 px-2 md:px-8   h-20   flex justify-between items-center shadow-md"> 
     
@@ -59,6 +62,12 @@ const Header = ({ NavBarItem }: props) => {
       </div>
       <div className="flex space-x-3 mr-4">
         <div><ModeToggle/></div> 
+
+
+
+        {data?.user ? (
+          <div className="flex items-center gap-3">
+          <div>
         <Link
           href={"../cart"}
           className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative"
@@ -76,6 +85,20 @@ const Header = ({ NavBarItem }: props) => {
             {cartItem.totalQuantity}
           </span>
         </Link>
+        </div>
+        <div className="hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60">
+              <Button onClick={() => signOut()}>Sign Out</Button>
+            </div>
+        </div>
+        ):(
+          <div>
+          <Link href={"/login"}>
+            <Button className=" hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60">
+              SignIn/Register</Button>
+          </Link>
+        </div>
+        )}
+      
       </div>
       {/* Responsive Mob */}
       <div className="block md:hidden">

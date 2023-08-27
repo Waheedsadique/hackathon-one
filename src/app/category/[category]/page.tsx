@@ -10,7 +10,7 @@ const ProductCategory = async ({ params }: Prop1) => {
     const singleCategory = await getCategories(category);
   return (
     <div>
-        <ProductList data={singleCategory}/>
+        <ProductList pdata={singleCategory}/>
     </div>
   )
 }

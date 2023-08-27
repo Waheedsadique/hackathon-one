@@ -13,11 +13,14 @@ import { useDispatch } from "react-redux";
 import { addCart } from "@/app/store/slice/cart";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 interface prop {
   Sdata: Product[];
 }
 const ProductSlider =  ({ Sdata }: prop) => {
   const dispatch = useDispatch();
+  const { data } = useSession();
   const Addproduct = (productAdd: Product, qty: number)=>{
     dispatch(addCart({product:productAdd, quantity:qty}))
     toast.success("Successfully Product Added ",{
@@ -64,9 +67,16 @@ const ProductSlider =  ({ Sdata }: prop) => {
                   </div>
                 </div>
                 <div className=" mx-auto">
+                  {data?.user ? (
                         <Button onClick={() => Addproduct(s,1)} className="w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent" >
                              Add to cart
-                        </Button>
+                        </Button>):(
+                          <Link href={"/login"}>
+                          <Button className=" w-auto md:w-auto  hover:bg-gradient-to-r from-red-600 to-orange-400 bg-black/60 m-4 font-semibold text-white  rounded shadow hover:shadow-lg py-2 px-4 border border-gray-800 hover:border-transparent">
+                            Login
+                          </Button>
+                        </Link>
+                        )}
                     </div>
               </SwiperSlide>
               
